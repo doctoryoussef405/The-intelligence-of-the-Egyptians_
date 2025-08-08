@@ -1,0 +1,28 @@
+import React from 'react'; import { Button } from "@/components/ui/button"; import { Card, CardContent } from "@/components/ui/card"; import { Input } from "@/components/ui/input"; import { Textarea } from "@/components/ui/textarea"; import { MapPin, Camera, Calendar, Video, Users } from "lucide-react";
+
+export default function App() { return ( <div className="p-4 space-y-6 bg-gray-50 min-h-screen"> {/* Patient Interface */} <Card className="shadow-xl"> <CardContent className="space-y-4"> <h2 className="text-xl font-bold text-blue-700">واجهة المريض</h2> <Input placeholder="الاسم الكامل" /> <Input placeholder="الرقم القومي" /> <Input placeholder="رقم الهاتف" /> <Input placeholder="العنوان" /> <Button className="w-full">📅 حجز موعد</Button> <Button className="w-full flex items-center gap-2"><Camera size={18}/> فحص بالذكاء الاصطناعي</Button> <Button className="w-full flex items-center gap-2"><MapPin size={18}/> تتبع العيادات</Button> <Button className="w-full flex items-center gap-2"><Video size={18}/> تعليمات ونصائح</Button> </CardContent> </Card>
+
+{/* Doctor Interface */}
+  <Card className="shadow-xl">
+    <CardContent className="space-y-4">
+      <h2 className="text-xl font-bold text-green-700">واجهة الطبيب</h2>
+      <Button className="w-full">📋 قائمة المرضى</Button>
+      <Button className="w-full">🖼️ نتائج الذكاء الاصطناعي</Button>
+      <Button className="w-full flex items-center gap-2"><Calendar size={18}/> جدول المواعيد</Button>
+      <Button className="w-full flex items-center gap-2"><MapPin size={18}/> خريطة انتشار الحالات</Button>
+    </CardContent>
+  </Card>
+
+  {/* AI Module Demo */}
+  <Card className="shadow-xl border-2 border-blue-300">
+    <CardContent className="space-y-4">
+      <h2 className="text-xl font-bold text-purple-700">📡 الذكاء الاصطناعي</h2>
+      <p className="text-sm text-gray-600">ارفع صورة للفحص وسيتم تحليلها لإعطاء تشخيص مبدئي</p>
+      <Input type="file" accept="image/*" />
+      <Textarea placeholder="نتيجة الفحص ستظهر هنا..." className="h-24" />
+    </CardContent>
+  </Card>
+</div>
+
+); }
+
